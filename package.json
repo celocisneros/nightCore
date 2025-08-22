@@ -12,7 +12,11 @@
     "fastify": "^5.5.0"
 =======
     "fastify": "^5.5.0",
+<<<<<<< HEAD
     "fastify-static": "^5.0.0"
 >>>>>>> d49130227791d79ea5f1fa6cd008e22ddb9cd880
+=======
+    "@fastify/static": "^5.0.0"
+>>>>>>> 393eae10bf8c8509d2502f0b6d43ff635d16faca
   }
 }
