@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @font-face {
+            font-family: 'dungeon';
+            src: url('dungeon.ttf');
+        }
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-family: 'dungeon';
+    font-size: xx-large;
+    background-color: black;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+button {
+    font-family: 'dungeon';
+    font-size: larger;
+    background-color: silver;
+    color: black;
+}
+    </style>
+</head>
+<body>
+<button>check connection to nightCore database</button>
+<button>check current users inside database</button>
+
+<div id="databaseBox">
+<p id="databaseResponse"></p>
+</div>
+
+<button onclick="window.location.href='index.html'">go back home</button>
+</body>
+</html>
