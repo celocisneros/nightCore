@@ -63,12 +63,12 @@ h1{
   async function loadMessage() {
     const res = await fetch('/api/system/connected');
     const text = await res.text();
-    document.getElementById('databaseResponse').textContent = text;
+    document.getElementById('databaseResponse').textContent = text.message;
   }
   async function loadUser(){
     const res = await fetch('/api/displayUser');
     const text = await res.text();
-    document.getElementById('databaseResponse').textContent = text;
+    document.getElementById('databaseResponse').textContent = text.name;
   }
 </script>
 
