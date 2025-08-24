@@ -33,7 +33,7 @@ connectDB();
 // Example API route
 app.get("/api/message", async (req, res) => {
   try {
-    const db = client.db("test"); // change to your db name
+    const db = client.db("testdb"); // change to your db name
     const collection = db.collection("messages");
     const message = await collection.findOne({});
     res.json(message);
