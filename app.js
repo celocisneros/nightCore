@@ -31,7 +31,7 @@ async function connectDB() {
 connectDB();
 
 // Example API route
-app.get("/message", async (req, res) => {
+app.get("/api/message", async (req, res) => {
   try {
     const db = client.db("test"); // change to your db name
     const collection = db.collection("messages");
