@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 //import mongodb database
-import { MongoClient } from "mongodb";
+const { MongoClient } = require("mongodb");
 const uri = "mongodb+srv://marcelo:<Otsm0170!>@abyssdatabase1.v75lqi6.mongodb.net/?retryWrites=true&w=majority&appName=AbyssDatabase1";
 const client = new MongoClient(uri);
 
