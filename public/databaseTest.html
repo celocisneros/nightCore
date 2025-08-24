@@ -51,7 +51,7 @@ h1{
 <h1>nightCore database testing</h1>
 
 <button onclick="loadMessage()">check connection to nightCore database</button>
-<button>check current users inside database</button>
+<button onclick="loadUser()">check current users inside database</button>
 
 <div id="databaseBox">
 <p id="databaseResponse">click a button for database response in this box</p>
@@ -64,6 +64,11 @@ h1{
     const res = await fetch('/api/message');
     const text = await res.text();
     document.getElementById('databaseResponse').textContent = text;
+  }
+  async function loadUser(){
+    const res = await fetch('/api/displayUser');
+    const text = await res.text();
+    document.getElementById('databaseRespone').textContent = text;
   }
 </script>
 

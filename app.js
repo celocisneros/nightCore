@@ -40,6 +40,19 @@ app.get("/api/message", async (req, res) => {
   }
 });
 
+//Route: grab the users in the users collection in the nightCore database
+app.get("/api/displayUsers", async (req, res) => {
+  try{
+    const db = client.db("nightcore");
+    const collection = db.collection("users");
+    const user = await collection.findOne({});
+    res.json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching user");
+  }
+});
+
 // Start the server
 app.listen(PORT, HOST, () => {
   console.log(`Server running at http://${HOST}:${PORT}`);
