@@ -3,6 +3,7 @@ const app = express();
 const PORT = 3000;
 const HOST = '0.0.0.0'; // listen on all network interfaces
 const { MongoClient } = require("mongodb");
+const bodyParser = require("body-parser"); // to parse POST data
 
 
 // Middleware to parse JSON (important if you want POST requests)
