@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const HOST = '0.0.0.0'; // listen on all network interfaces
+const { MongoClient } = require("mongodb");
+
 
 // Middleware to parse JSON (important if you want POST requests)
 app.use(express.json());
