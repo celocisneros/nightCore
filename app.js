@@ -9,23 +9,34 @@ app.use(express.json());
 // Serve everything in the "public" folder
 app.use(express.static('public'));
 
-//import mongodb database
-const { MongoClient } = require("mongodb");
+// MongoDB URI from Atlas
 const uri = "mongodb+srv://marcelo:<Otsm0170!>@abyssdatabase1.v75lqi6.mongodb.net/?retryWrites=true&w=majority&appName=AbyssDatabase1";
-const client = new MongoClient(uri);
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-//mongodb test route
-app.get("/api/message", async (req, res) => {
+// Connect to Mongo
+async function connectDB() {
   try {
-    await client.connect(); //connect if not already
-    const db = client.db("testdb");
-    const coll = db.collection("messages");
-
-    //grab the first message
-    const msg = await coll.findOne();
-    res.send(msg?.text || "No message found");
+    await client.connect();
+    console.log("✅ Connected to MongoDB Atlas");
   } catch (err) {
-    res.status(500).send("DB error: " + err);
+    console.error("❌ DB error:", err);
+  }
+}
+
+connectDB();
+
+// Example API route
+app.get("/message", async (req, res) => {
+  try {
+    const db = client.db("test"); // change to your db name
+    const collection = db.collection("messages");
+    const message = await collection.findOne({});
+    res.json(message);
+  } catch (err) {
+    res.status(500).send("Error fetching message");
   }
 });
 
