@@ -61,7 +61,7 @@ h1{
 
 <script>
   async function loadMessage() {
-    const res = await fetch('/api/message');
+    const res = await fetch('/api/system/connected');
     const text = await res.text();
     document.getElementById('databaseResponse').textContent = text;
   }
