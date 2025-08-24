@@ -50,7 +50,7 @@ h1{
     <img id="logo" src="nightCoreLogo.jpeg">
 <h1>nightCore database testing</h1>
 
-<button>check connection to nightCore database</button>
+<button onclick="loadMessage()">check connection to nightCore database</button>
 <button>check current users inside database</button>
 
 <div id="databaseBox">
@@ -58,5 +58,14 @@ h1{
 </div>
 
 <button style="margin-bottom: 100px;" onclick="window.location.href='index.html'">go back home</button>
+
+<script>
+  async function loadMessage() {
+    const res = await fetch('/api/message');
+    const text = await res.text();
+    document.getElementById('databaseResponse').textContent = text;
+  }
+</script>
+
 </body>
 </html>
