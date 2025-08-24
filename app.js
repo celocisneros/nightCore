@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Connect to MongoDB
 connectDB();
 
-// Route: grab a message from the local MongoDB "testdb" database in "messages" collection
+//grabs a system message by the objects "alert" key
 app.get("/api/system/:alert", async (req, res) => {
   try {
     const db = client.db("nightcore"); // select database
@@ -41,12 +41,13 @@ app.get("/api/system/:alert", async (req, res) => {
   }
 });
 
-//Route: grab the users in the users collection in the nightCore database
-app.get("/api/displayUser", async (req, res) => {
+//Route: grab a user by name in the users collection in the nightCore database
+app.get("/api/user/:name", async (req, res) => {
   try{
     const db = client.db("nightcore");
     const collection = db.collection("users");
-    const user = await collection.findOne({});
+    const name = req.params.name;
+    const user = await collection.findOne({ name });
     res.json(user);
   } catch (err) {
     console.error(err);
