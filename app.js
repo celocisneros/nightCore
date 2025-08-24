@@ -1,5 +1,8 @@
 // Import Express framework
-const express = require('express');  
+const express = require('express'); 
+
+// Import MongoDB client and connect function from db.js
+const { client, connectDB } = require("./db"); // << here
 
 // Create an Express app instance
 const app = express();  
@@ -7,9 +10,6 @@ const app = express();
 // Set the port and host for the server
 const PORT = 3000;
 const HOST = '0.0.0.0'; // listen on all network interfaces so the server is accessible externally
-
-// Import MongoClient to interact with MongoDB
-const { MongoClient } = require("mongodb");  
 
 // Import body-parser to parse POST request data
 const bodyParser = require("body-parser"); // to parse POST data
@@ -24,26 +24,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());  
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// MongoDB connection URI (local MongoDB)
-const uri = "mongodb://localhost:27017"; 
-
-// Create a new MongoClient instance with options
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// Async function to connect to MongoDB
-async function connectDB() {
-  try {
-    await client.connect(); // connect to MongoDB server
-    console.log("Connected to MongoDB");
-  } catch (err) {
-    console.error(err); // log any connection errors
-  }
-}
-
-// Call the connect function immediately
+// Connect to MongoDB
 connectDB();
 
 // Route: grab a message from the local MongoDB "testdb" database in "messages" collection
@@ -57,11 +38,6 @@ app.get("/api/message", async (req, res) => {
     console.error(err);
     res.status(500).send("Error fetching message"); // send error if fails
   }
-});
-
-// Example API route (optional)
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from Express API!' }); // simple JSON response
 });
 
 // Start the server
