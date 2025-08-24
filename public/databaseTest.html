@@ -62,13 +62,13 @@ h1{
 <script>
   async function loadMessage() {
     const res = await fetch('/api/system/connected');
-    const text = await res.text();
-    document.getElementById('databaseResponse').textContent = text.message;
+    const system = await res.json();
+    document.getElementById('databaseResponse').textContent = system.message;
   }
   async function loadUser(){
     const res = await fetch('/api/displayUser');
-    const text = await res.text();
-    document.getElementById('databaseResponse').textContent = text.name;
+    const user = await res.json();
+    document.getElementById('databaseResponse').textContent = user.name;
   }
 </script>
 
