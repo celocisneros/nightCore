@@ -41,7 +41,7 @@ app.get("/api/message", async (req, res) => {
 });
 
 //Route: grab the users in the users collection in the nightCore database
-app.get("/api/displayUsers", async (req, res) => {
+app.get("/api/displayUser", async (req, res) => {
   try{
     const db = client.db("nightcore");
     const collection = db.collection("users");
