@@ -11,6 +11,8 @@ app.use(express.json());
 
 // Serve everything in the "public" folder
 app.use(express.static('public'));
+app.use(bodyParser.json());  // parse JSON bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // For local MongoDB
 const uri = "mongodb://localhost:27017"; 
@@ -18,6 +20,17 @@ const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+// Connect to MongoDB
+async function connectDB() {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB");
+  } catch (err) {
+    console.error(err);
+  }
+}
+connectDB();
 
 //grab message from local mongo testdb database in messages collection
 app.get("/api/message", async (req, res) => {
