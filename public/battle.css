@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#turnBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+#battleContainer{
+    display: flex;
+    border: solid 1px black;
+    gap: 20px;
+}
+#playerBox{
+    float: left;
+    width: fit-content;
+    height: fit-content;
+    border: solid 1px blue;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+#enemyBox{
+    float: right;
+    width: fit-content;
+    height: fit-content;
+    border: solid 1px red;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+#choiceBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: solid 1px violet;
+    padding: 10px;
+}
