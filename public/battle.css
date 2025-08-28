@@ -19,7 +19,7 @@ body{
 #battleContainer{
     display: flex;
     border: solid 1px black;
-    gap: 40px;
+    gap: 100px;
     padding: 50px;
 }
 #playerBox{
