@@ -24,7 +24,7 @@ body{
 }
 #playerBox{
     float: left;
-    width: 200px;
+    width: fit-content;
     height: fit-content;
     border: solid 1px blue;
     align-items: center;
@@ -35,7 +35,7 @@ body{
 }
 #enemyBox{
     float: right;
-    width: 200px;
+    width: fit-content;
     height: fit-content;
     border: solid 1px red;
     align-items: center;
