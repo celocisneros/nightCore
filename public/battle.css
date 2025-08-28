@@ -19,21 +19,23 @@ body{
 #battleContainer{
     display: flex;
     border: solid 1px black;
-    gap: 20px;
+    gap: 40px;
+    padding: 50px;
 }
 #playerBox{
     float: left;
-    width: fit-content;
+    width: 200px;
     height: fit-content;
     border: solid 1px blue;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 10px;
+    
 }
 #enemyBox{
     float: right;
-    width: fit-content;
+    width: 200px;
     height: fit-content;
     border: solid 1px red;
     align-items: center;
