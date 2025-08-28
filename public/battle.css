@@ -51,4 +51,5 @@ body{
     border: solid 1px violet;
     padding: 10px;
     flex-direction: column;
+    gap: 20px;
 }
