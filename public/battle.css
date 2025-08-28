@@ -3,7 +3,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 #turnBox{
     display: flex;
@@ -49,7 +49,7 @@ body{
     justify-content: center;
     text-align: center;
     border: solid 1px violet;
-    padding: 10px;
+    padding: 40px;
     flex-direction: column;
     gap: 20px;
 }
