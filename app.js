@@ -27,6 +27,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Connect to MongoDB
 connectDB();
 
+//import the BASIC battle schema model 
+const Battle = require("./models/Battle");
+
 //grabs a system message by the objects "alert" key
 app.get("/api/system/:alert", async (req, res) => {
   try {
@@ -54,6 +57,72 @@ app.get("/api/user/:name", async (req, res) => {
     res.status(500).send("Error fetching user");
   }
 });
+
+async function initBattle() {
+  let existing = await Battle.findOne(); // look for an existing battle
+  if (!existing) {
+    // If no battle exists, create one
+    const battle = new Battle({
+      player: { name: "Hero", hp: 100, attack: 20, defense: 5 },
+      enemy: { name: "Slime", hp: 80, attack: 10, defense: 2 },
+      turn: "player"
+    });
+    await battle.save();
+    console.log("✅ Battle initialized in database");
+  }
+}
+
+initBattle();
+
+app.get("/battle", async (req, res) => {
+  const battle = await Battle.findOne();
+  res.json(battle);
+});
+
+app.post("/battle/attack", async (req, res) => {
+  const battle = await Battle.findOne();
+
+  if (battle.turn !== "player") {
+    return res.json({ message: "Not your turn!", battle });
+  }
+
+  const damage = Math.max(battle.player.attack - battle.enemy.defense, 1);
+  battle.enemy.hp -= damage;
+
+  let result = `${battle.player.name} attacks ${battle.enemy.name} for ${damage} damage!`;
+
+  if (battle.enemy.hp <= 0) {
+    result += `\n${battle.enemy.name} is defeated!`;
+  } else {
+    battle.turn = "enemy";
+  }
+
+  await battle.save(); // save updated state
+  res.json({ result, battle });
+});
+
+app.post("/battle/enemy-turn", async (req, res) => {
+  const battle = await Battle.findOne();
+
+  if (battle.turn !== "enemy") {
+    return res.json({ message: "Not enemy's turn!", battle });
+  }
+
+  const damage = Math.max(battle.enemy.attack - battle.player.defense, 1);
+  battle.player.hp -= damage;
+
+  let result = `${battle.enemy.name} attacks ${battle.player.name} for ${damage} damage!`;
+
+  if (battle.player.hp <= 0) {
+    result += `\n${battle.player.name} is defeated!`;
+  } else {
+    battle.turn = "player";
+  }
+
+  await battle.save(); // save updated state
+  res.json({ result, battle });
+});
+
 
 // Start the server
 app.listen(PORT, HOST, () => {
