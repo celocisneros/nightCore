@@ -9,4 +9,10 @@ body{
 #profile{
     background-color: silver;
     color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
