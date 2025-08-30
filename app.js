@@ -97,11 +97,6 @@ app.post("/api/register", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 
-  if (data.message === "Player registered and logged in!") {
-  // Redirect to dashboard
-  window.location.href = "dashboard.html";
-}
-
 });
 
 // --- LOGIN ROUTE ---
@@ -148,10 +143,6 @@ app.post("/api/login", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 
-  if (data.message === "Login successful!") {
-  // Redirect to dashboard
-  window.location.href = "dashboard.html";
-}
 });
 
 // GET /api/current-player
