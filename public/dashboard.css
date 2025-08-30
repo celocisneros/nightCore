@@ -6,24 +6,7 @@ body{
     background-color: black;
     color: silver;
 }
-#miniProfile{
-    width: fit-content;
-    height: fit-content;
+#profile{
     background-color: silver;
-    padding: 10px;
-    float: left;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-}
-#miniProfileData{
     color: black;
-}
-#centerContainer{
-    width: 80vw;
-    height: fit-content;
-    border: solid 3px silver;
 }
