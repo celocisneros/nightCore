@@ -23,7 +23,7 @@ body{
     justify-content: center;
     text-align: center;
     background-color: silver;
-    padding: 10px;
+    padding: 20px;
     border: solid 2px greenyellow;
 
 }
@@ -31,5 +31,5 @@ body{
     color: green;
 }
 #dashNav a:hover{
-    color: yellowgreen;
+    color: red;
 }
