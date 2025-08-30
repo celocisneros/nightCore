@@ -25,7 +25,8 @@ body{
     background-color: silver;
     padding: 20px;
     border: solid 2px greenyellow;
-
+    position: fixed;
+    left: 80%;
 }
 #dashNav a{
     color: green;
