@@ -10,10 +10,14 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
+let playersCollection; //we will use this to talk to the collection
+
 // Async function to connect to MongoDB
 async function connectDB() {
   try {
     await client.connect();
+    const db = client.db("nightcore"); // Pick database
+    playersCollection = db.collection("players"); // Pick collection
     console.log("✅ Connected to MongoDB");
   } catch (err) {
     console.error("❌ MongoDB connection error:", err);
@@ -21,4 +25,6 @@ async function connectDB() {
 }
 
 // Export the client and connectDB function
-module.exports = { client, connectDB };
+module.exports = { connectDB,
+  getPlayersCollection: () => playersCollection
+ };
