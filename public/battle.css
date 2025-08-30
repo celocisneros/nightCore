@@ -12,11 +12,12 @@ body{
     justify-content: center;
     text-align: center;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     width: fit-content;
     height: fit-content;
-    border: solid 1px green;
-    background-color: mediumspringgreen;
+    border: solid 1px white;
+    background-color: dimgray;
+    color: white;
 }
 #battleContainer{
     display: flex;
