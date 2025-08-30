@@ -4,7 +4,6 @@ body{
     align-items: center;
     justify-content: center;
     background-color: skyblue;
-    color: silver;
 }
 #profile{
     background-color: silver;
@@ -15,6 +14,7 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
+    border: solid 2px greenyellow;
 }
 #dashNav{
     display: flex;
@@ -24,4 +24,6 @@ body{
     text-align: center;
     background-color: silver;
     padding: 10px;
+    border: solid 2px greenyellow;
+
 }
