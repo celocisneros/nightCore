@@ -58,3 +58,8 @@ body{
     gap: 20px;
     background-color: mediumspringgreen;
 }
+#choiceBox button{
+    background-color: dimgray;
+    color: white;
+    border: solid 1px white;
+}
