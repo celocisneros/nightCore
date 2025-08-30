@@ -21,8 +21,8 @@ body{
 #battleContainer{
     display: flex;
     border: solid 1px black;
-    gap: 200px;
-    padding: 100px;
+    gap: 300px;
+    padding: 50px;
     background-color: mediumspringgreen;
 }
 #playerBox{
