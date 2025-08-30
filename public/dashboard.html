@@ -36,8 +36,6 @@
         document.getElementById("currentUser").innerText = 
           "Logged in as: " + data.player.username;
 
-          document.getElementById("miniProfileData").textContent = res.json.player;
-
       } catch (err) {
         console.error("Error fetching player:", err);
         document.getElementById("currentUser").innerText = "Error loading player info";
