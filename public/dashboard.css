@@ -30,7 +30,7 @@ body{
 }
 #dashNav a{
     color: darkslategray;
-    font-size: larger;
+    font-size: 24px;
 }
 #dashNav a:hover{
     color: red;
