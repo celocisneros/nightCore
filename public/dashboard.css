@@ -9,5 +9,20 @@ body{
 #currentUser{
     background-color: silver;
     color: black;
-    padding: 20px;
+    padding: 10px;
+}
+#miniProfile{
+    width: fit-content;
+    height: fit-content;
+    background-color: silver;
+    padding: 10px;
+    float: left;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+#miniProfileData{
+    color: black;
 }
