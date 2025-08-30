@@ -29,7 +29,8 @@ body{
     left: 75%;
 }
 #dashNav a{
-    color: green;
+    color: darkslategray;
+    font-size: large;
 }
 #dashNav a:hover{
     color: red;
