@@ -46,7 +46,7 @@
     async function loadPlayerStats() {
               const response = await fetch("http://52.186.84.191:3000/api/current-player");
         const data = await response.json();
-                document.getElementById("miniProfileData").innerText = data;
+                document.getElementById("miniProfileData").innerHTML = `${player.username}`;
 
     }
     // Call function on page load
