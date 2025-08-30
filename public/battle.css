@@ -4,6 +4,7 @@ body{
     justify-content: center;
     flex-direction: column;
     gap: 40px;
+    background-color: skyblue;
 }
 #turnBox{
     display: flex;
@@ -15,12 +16,14 @@ body{
     width: fit-content;
     height: fit-content;
     border: solid 1px green;
+    background-color: mediumspringgreen;
 }
 #battleContainer{
     display: flex;
     border: solid 1px black;
     gap: 100px;
     padding: 50px;
+    background-color: mediumspringgreen;
 }
 #playerBox{
     float: left;
