@@ -29,45 +29,9 @@
     <button id="enemyTurnBtn">done</button>
 </div>
 
+<button onclick="window.location.href='dashboard.html'">go back to dashboard</button>
+
 <script>
-    async function getBattle() {
-  const res = await fetch("http://52.186.84.191:3000/battle");
-  const battle = await res.json();
-
-  // Update the screen with stats
-  document.getElementById("playerStats").textContent =
-    `${battle.player.name} - HP: ${battle.player.hp}`;
-  document.getElementById("enemyStats").textContent =
-    `${battle.enemy.name} - HP: ${battle.enemy.hp}`;
-}
-
-document.getElementById("attackBtn").addEventListener("click", async () => {
-  const res = await fetch("http://localhost:3000/battle/attack", {
-    method: "POST"
-  });
-  const data = await res.json();
-
-  // Show result message
-  document.getElementById("battleLog").textContent = data.result;
-
-  // Refresh stats on screen
-  getBattle();
-});
-
-document.getElementById("enemyTurnBtn").addEventListener("click", async () => {
-  const res = await fetch("http://localhost:3000/battle/enemy-turn", {
-    method: "POST"
-  });
-  const data = await res.json();
-
-  // Show result
-  document.getElementById("battleLog").textContent = data.result;
-
-  // Refresh stats
-  getBattle();
-});
-
-getBattle();
 </script>
 
 </body>
