@@ -131,7 +131,6 @@ app.post("/api/login", async (req, res) => {
 
     // --- SESSION PART: store logged-in player ---
     req.session.player = { username: player.username };
-    console.log(req.session.player + `player has been added to session`);
 
     // 7. If we reach this point, login is successful
     //    You could generate a session or token here for authentication
