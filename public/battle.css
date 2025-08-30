@@ -65,6 +65,7 @@ body{
     border: solid 1px white;
     padding: 10px;
     border-radius: 10px;
+    font-size: larger;
 }
 pre{
     font-size: larger;
