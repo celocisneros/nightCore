@@ -70,6 +70,13 @@ label{
         // 6. Show backend message in <p id="message">
         document.getElementById("message").innerText = data.message;
 
+    // Redirect in the BROWSER after successful login
+    if (data.message.includes("successful")) {
+      window.location.href = "dashboard.html";
+    } else {
+      document.getElementById("message").innerText = data.message;
+    }
+
         // 7. Optional: if login successful, you could redirect to game page
         // if (data.success) {
         //   window.location.href = "/game.html";

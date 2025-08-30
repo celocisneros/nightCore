@@ -143,11 +143,6 @@ app.post("/api/login", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 
-  if (data.message.includes("successful")) {
-  window.location.href = "dashboard.html";
-}
-
-
 });
 
 // GET /api/current-player
