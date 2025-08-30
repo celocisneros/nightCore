@@ -14,7 +14,7 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: solid 2px greenyellow;
+    border: solid 2px black;
 }
 #dashNav{
     display: flex;
@@ -24,7 +24,7 @@ body{
     text-align: center;
     background-color: silver;
     padding: 20px;
-    border: solid 2px greenyellow;
+    border: solid 2px black;
     position: fixed;
     left: 80%;
 }
