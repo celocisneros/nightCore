@@ -27,3 +27,9 @@ body{
     border: solid 2px greenyellow;
 
 }
+#dashNav a{
+    color: green;
+}
+#dashNav a:hover{
+    color: yellowgreen;
+}
