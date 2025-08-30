@@ -14,8 +14,7 @@
     // Fetch the current logged-in player from backend
     async function loadPlayer() {
       try {
-        const response = await fetch("http://localhost:3000/api/current-player");
-
+        const response = await fetch("http://52.186.84.191:3000/api/current-player");
         if (!response.ok) {
           // If not logged in, redirect to login page
           window.location.href = "login.html";
