@@ -96,6 +96,12 @@ app.post("/api/register", async (req, res) => {
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
+
+  if (data.message === "Player registered and logged in!") {
+  // Redirect to dashboard
+  window.location.href = "dashboard.html";
+}
+
 });
 
 // --- LOGIN ROUTE ---
@@ -141,6 +147,23 @@ app.post("/api/login", async (req, res) => {
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
+
+  if (data.message === "Login successful!") {
+  // Redirect to dashboard
+  window.location.href = "dashboard.html";
+}
+});
+
+// GET /api/current-player
+// Returns the logged-in player's info
+app.get("/api/current-player", (req, res) => {
+  // Check if the session has a player
+  if (!req.session.player) {
+    return res.status(401).json({ message: "Not logged in" });
+  }
+
+  // Send player info
+  res.json({ player: req.session.player });
 });
 
 

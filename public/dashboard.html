@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Welcome to Your Dashboard</h1>
+
+  <!-- This will display the current logged-in username -->
+  <p id="currentUser">Loading...</p>
+
+  <script>
+    // Fetch the current logged-in player from backend
+    async function loadPlayer() {
+      try {
+        const response = await fetch("http://localhost:3000/api/current-player");
+
+        if (!response.ok) {
+          // If not logged in, redirect to login page
+          window.location.href = "login.html";
+          return;
+        }
+
+        const data = await response.json();
+
+        // Display username on page
+        document.getElementById("currentUser").innerText = 
+          "Logged in as: " + data.player.username;
+
+      } catch (err) {
+        console.error("Error fetching player:", err);
+        document.getElementById("currentUser").innerText = "Error loading player info";
+      }
+    }
+
+    // Call function on page load
+    loadPlayer();
+  </script>
+</body>
+</html>
