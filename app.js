@@ -17,6 +17,18 @@ const bodyParser = require("body-parser"); // to parse POST data
 // Middleware to parse JSON requests (important for POST/PUT)
 app.use(express.json());
 
+
+//we import sessions
+const session = require("express-session");
+
+app.use(session({
+  secret: "your-secret-key", // change to a secure random string
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 24*60*60*1000 } // 1 day in milliseconds
+}));
+
+
 // Serve static files from the "public" folder
 app.use(express.static('public'));
 
