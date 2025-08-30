@@ -21,8 +21,8 @@ body{
 #battleContainer{
     display: flex;
     border: solid 1px black;
-    gap: 100px;
-    padding: 50px;
+    gap: 200px;
+    padding: 100px;
     background-color: mediumspringgreen;
 }
 #playerBox{
@@ -40,7 +40,7 @@ body{
     float: right;
     width: fit-content;
     height: fit-content;
-    border: solid 1px red;
+    border: solid 1px black;
     align-items: center;
     justify-content: center;
     text-align: center;
