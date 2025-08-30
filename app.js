@@ -86,6 +86,49 @@ app.post("/api/register", async (req, res) => {
   }
 });
 
+// --- LOGIN ROUTE ---
+// This route will check if the username/password match a player in MongoDB
+app.post("/api/login", async (req, res) => {
+  try {
+    // 1. Get the players collection from db.js
+    const playersCollection = getPlayersCollection();
+
+    // 2. Extract the username and password sent from the frontend
+    const { username, password } = req.body;
+
+    // 3. Basic validation: make sure both fields are provided
+    if (!username || !password) {
+      return res.status(400).json({ message: "Username and password are required" });
+    }
+
+    // 4. Search MongoDB for a player with the given username
+    const player = await playersCollection.findOne({ username });
+
+    // 5. If no player found, return an error
+    if (!player) {
+      return res.status(400).json({ message: "Invalid username or password" });
+    }
+
+    // 6. Check if the password matches
+    // ⚠️ Currently plain text, so we just compare strings
+    // In a real game, you should hash passwords with bcrypt
+    if (player.password !== password) {
+      return res.status(400).json({ message: "Invalid username or password" });
+    }
+
+    // 7. If we reach this point, login is successful
+    //    You could generate a session or token here for authentication
+    res.json({ message: "Login successful!" });
+
+  } catch (err) {
+    // 8. Catch any errors (database issues, etc.)
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+
 
 // Start the server
 app.listen(PORT, HOST, () => {

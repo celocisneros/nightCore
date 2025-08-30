@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Player Login</title>
+          <style>
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: silver;
+    flex-direction: column;
+}
+label{
+    background-color: silver;
+    color: black;
+}
+#message{
+    background-color: aquamarine;
+    color: black;
+
+}
+        </style>
+</head>
+<body>
+  <h1>Login</h1>
+
+  <!-- LOGIN FORM -->
+  <!-- We will use JS fetch to send login data without refreshing the page -->
+  <form id="loginForm">
+    <!-- Username input -->
+    <label>Username:</label><br>
+    <input type="text" id="username" required><br><br>
+
+    <!-- Password input -->
+    <label>Password:</label><br>
+    <input type="password" id="password" required><br><br>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- This will display messages from the backend (success or error) -->
+  <p id="message"></p>
+
+  <script>
+    // 1. Get the form element
+    const form = document.getElementById("loginForm");
+
+    // 2. Listen for the "submit" event
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // Prevent default form behavior (page reload)
+
+      // 3. Collect username and password values from the input fields
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        // 4. Send POST request to backend login route
+        //    Content-Type: application/json
+        const response = await fetch("http://localhost:3000/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        // 5. Parse the response JSON
+        const data = await response.json();
+
+        // 6. Show backend message in <p id="message">
+        document.getElementById("message").innerText = data.message;
+
+        // 7. Optional: if login successful, you could redirect to game page
+        // if (data.success) {
+        //   window.location.href = "/game.html";
+        // }
+      } catch (err) {
+        // 8. Catch any network errors
+        document.getElementById("message").innerText = "Error: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
