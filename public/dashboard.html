@@ -21,7 +21,7 @@
 
   <script>
     // Fetch the current logged-in player from backend
-    async function loadPlayer() {
+    async function loadCurrentPlayer() {
       try {
         const response = await fetch("http://52.186.84.191:3000/api/current-player");
         if (!response.ok) {
@@ -42,8 +42,15 @@
       }
     }
 
+
+    async function loadPlayerStats() {
+              const response = await fetch("http://52.186.84.191:3000/api/current-player");
+        const data = await response.json();
+                document.getElementById("miniProfileData").innerText = res.json(player);
+
+    }
     // Call function on page load
-    loadPlayer();
+    loadCurrentPlayer();
   </script>
 </body>
 </html>
