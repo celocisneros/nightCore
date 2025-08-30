@@ -26,3 +26,8 @@ body{
 #miniProfileData{
     color: black;
 }
+#centerContainer{
+    width: 80vw;
+    height: fit-content;
+    border: solid 3px silver;
+}
