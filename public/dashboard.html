@@ -8,9 +8,6 @@
 <body>
   <h1>Welcome to Your Dashboard</h1>
 
-  <!-- This will display the current logged-in username -->
-  <p id="currentUser">Loading...</p>
-
 <div id="centerContainer">
 
 <div id="miniProfile">
@@ -19,39 +16,51 @@
 
 </div> <!-- end of center container-->
 
-  <script>
-    // Fetch the current logged-in player from backend
-   // async function loadCurrentPlayer() {
-      //try {
-      //  const response = await fetch("http://52.186.84.191:3000/api/current-player");
-        //if (!response.ok) {
-          // If not logged in, redirect to login page
-       //   window.location.href = "login.html";
-       //   return;
-       // }
+<div id="profile"></div>
 
-       // const data = await response.json();
+<script>
+  async function loadProfile() {
+    try {
+      // Fetch the logged-in player from your backend
+      const response = await fetch("/api/current-user");
+      const data = await response.json();
 
-      //  // Display username on page
-       // document.getElementById("currentUser").innerText = 
-        //  "Logged in as: " + data.player.username;
+      // If user is not logged in
+      if (!data.player) {
+        document.getElementById("miniProfileData").innerText = "No user logged in";
+        return;
+      }
 
-     // } catch (err) {
-    //    console.error("Error fetching player:", err);
-    //    document.getElementById("currentUser").innerText = "Error loading player info";
-     // }
-    //}
+      // ✅ Store player in a variable
+      const player = data.player;
 
+      // --- Option A: show fixed fields ---
+      document.getElementById("miniProfileData").innerHTML = `
+        <h2>${player.username}'s Profile</h2>
+        <p>Level: ${player.level}</p>
+        <p>XP: ${player.xp}</p>
+        <p>HP: ${player.hp}</p>
+      `;
 
-    async function loadPlayerStats() {
-              const response = await fetch("http://52.186.84.191:3000/api/current-player");
-        const data = await response.json();
-                document.getElementById("miniProfileData").innerHTML = `${player.username}`;
-
+      // --- Option B: if you want it dynamic ---
+      /*
+      let html = `<h2>${player.username}'s Profile</h2><ul>`;
+      for (const [key, value] of Object.entries(player)) {
+        if (key !== "password" && key !== "_id") { // skip sensitive/system fields
+          html += `<li>${key}: ${value}</li>`;
+        }
+      }
+      html += "</ul>";
+      document.getElementById("profile").innerHTML = html;
+      */
+    } catch (err) {
+      console.error("Error loading profile:", err);
     }
-    // Call function on page load
-    //loadCurrentPlayer();
-    loadPlayerStats();
-  </script>
+  }
+
+  // Call it when the page loads
+  loadProfile();
+</script>
+
 </body>
 </html>

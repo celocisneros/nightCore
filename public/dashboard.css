@@ -6,11 +6,6 @@ body{
     background-color: black;
     color: silver;
 }
-#currentUser{
-    background-color: silver;
-    color: black;
-    padding: 10px;
-}
 #miniProfile{
     width: fit-content;
     height: fit-content;
