@@ -122,42 +122,33 @@ app.post("/api/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid username or password" });
     }
 
-    // 6. Check if the password matches
-    // ⚠️ Currently plain text, so we just compare strings
-    // In a real game, you should hash passwords with bcrypt
+    // 6. Check if the password matches (⚠️ plain text for now)
     if (player.password !== password) {
       return res.status(400).json({ message: "Invalid username or password" });
     }
 
+    // 7. Remove the password before saving to session
+    const { password: _, ...safePlayer } = player;
 
-    // --- SESSION PART: store logged-in player ---
-    req.session.player = player;
+    // 8. Store full player object (without password) in session
+    req.session.player = safePlayer;
 
-    // 7. If we reach this point, login is successful
-    //    You could generate a session or token here for authentication
-    res.json({ message: "Login successful!" });
+    // 9. Send success response
+    res.json({ message: "Login successful!", player: safePlayer });
 
   } catch (err) {
-    // 8. Catch any errors (database issues, etc.)
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
-
 });
 
-// GET /api/current-player
-// Returns the logged-in player's info
-app.get("/api/current-player", (req, res) => {
-  // Check if the session has a player
-  if (!req.session.player) {
-    return res.status(401).json({ message: "Not logged in" });
+app.get("/api/current-user", (req, res) => {
+  if (req.session && req.session.player) {
+    res.json({ player: req.session.player });  // already full player object
+  } else {
+    res.json({ player: null });
   }
-
-  // Send player info
-  res.json({ player: req.session.player });
 });
-
-
 
 
 // Start the server

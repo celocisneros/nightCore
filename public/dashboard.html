@@ -8,59 +8,35 @@
 <body>
   <h1>Welcome to Your Dashboard</h1>
 
-<div id="centerContainer">
-
-<div id="miniProfile">
-  <p id="miniProfileData"></p>
-</div> <!-- end of mini profile div-->
-
-</div> <!-- end of center container-->
-
 <div id="profile"></div>
 
 <script>
-  async function loadProfile() {
-    try {
-      // Fetch the logged-in player from your backend
-      const response = await fetch("/api/current-user");
-      const data = await response.json();
+async function loadProfile() {
+  try {
+    const res = await fetch("/api/current-user");
+    const data = await res.json();
 
-      // If user is not logged in
-      if (!data.player) {
-        document.getElementById("miniProfileData").innerText = "No user logged in";
-        return;
-      }
-
-      // ✅ Store player in a variable
-      const player = data.player;
-
-      // --- Option A: show fixed fields ---
-      document.getElementById("miniProfileData").innerHTML = `
-        <h2>${player.username}'s Profile</h2>
-        <p>Level: ${player.level}</p>
-        <p>XP: ${player.xp}</p>
-        <p>HP: ${player.hp}</p>
-      `;
-
-      // --- Option B: if you want it dynamic ---
-      /*
-      let html = `<h2>${player.username}'s Profile</h2><ul>`;
-      for (const [key, value] of Object.entries(player)) {
-        if (key !== "password" && key !== "_id") { // skip sensitive/system fields
-          html += `<li>${key}: ${value}</li>`;
-        }
-      }
-      html += "</ul>";
-      document.getElementById("profile").innerHTML = html;
-      */
-    } catch (err) {
-      console.error("Error loading profile:", err);
+    if (!data.player) {
+      document.getElementById("profile").innerText = "Not logged in.";
+      return;
     }
-  }
 
-  // Call it when the page loads
-  loadProfile();
+    // Example: show username + stats
+    const player = data.player;
+    document.getElementById("profile").innerHTML = `
+      <h3>${player.username}'s Profile</h3>
+      <p>Level: ${player.level}</p>
+      <p>XP: ${player.xp}</p>
+      <p>HP: ${player.hp}</p>
+    `;
+  } catch (err) {
+    console.error("Error loading profile:", err);
+  }
+}
+
+loadProfile();
 </script>
+
 
 </body>
 </html>
