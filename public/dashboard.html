@@ -65,7 +65,7 @@ async function updateProfilePic(url) {
 
 // attach it to the button
 document.getElementById("updatePicBtn").addEventListener("click", () => {
-  const newUrl = document.getElementById("picUrlInput").value;
+  const newUrl = document.getElementById("ProfilePicUrlInput").value;
   if (newUrl.trim()) {
     updateProfilePic(newUrl);
   }
