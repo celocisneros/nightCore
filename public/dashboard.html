@@ -63,6 +63,31 @@ async function loadProfilePicture(){
     }
   }
 loadProfile();
+
+document.getElementById("profilePicForm").addEventListener("submit", async (e) => {
+  e.preventDefault(); // stop the page from refreshing
+
+  const formData = new FormData();
+  const file = document.getElementById("profilePicInput").files[0];
+  formData.append("profilePic", file);
+
+  try {
+    const res = await fetch("/api/update-profile-pic", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();
+
+    if (data.player) {
+      // Update the profile picture immediately
+      document.getElementById("profilePic").src = data.player.profilePicUrl;
+    }
+  } catch (err) {
+    console.error("Error uploading profile pic:", err);
+  }
+});
+
 </script>
 
 
