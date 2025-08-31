@@ -166,6 +166,29 @@ app.get("/api/current-user", (req, res) => {
   }
 });
 
+//SAVE PROFILE PIC TO DB
+app.post("/api/update-profile-pic", async (req, res) => {
+  try {
+    if (!req.session.player) {
+      return res.status(401).json({ error: "Not logged in" });
+    }
+
+    const playerId = req.session.player._id;
+    const { profilePic } = req.body; // Base64 string
+
+    // Update MongoDB player object
+    await Player.findByIdAndUpdate(playerId, { profilePic });
+
+    // Also update the session so frontend sees it right away
+    req.session.player.profilePic = profilePic;
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Error updating profile pic:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 
 
 
