@@ -4,10 +4,13 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const { client, connectDB, getPlayersCollection } = require("./db"); // << here
 
-// Import and mount routes
-app.use("/api/auth", require("./routes/authRoutes"));
-app.use("/api/player", require("./routes/playerRoutes"));
-// later: app.use("/api/battle", require("./routes/battleRoutes"));
+//import routes
+const authRoutes = require("./routes/authRoutes");
+const playerRoutes = require("./routes/playerRoutes");
+
+//use routes
+app.use("/api", authRoutes);
+app.use("/api", playerRoutes);
 
 // Create an Express app
 const app = express();  
