@@ -9,7 +9,7 @@
   <h1>Welcome to Your Dashboard</h1>
 
 <div id="profile">
-  <img id="profilePic">
+  <img width=150 style="background-color: aquamarine;" id="profilePic">
 </div>
 
 <form id="profilePicForm" enctype="multipart/form-data">
@@ -48,45 +48,7 @@ async function loadProfile() {
   }
 }
 
-async function loadProfilePicture(){
-  try {
-    const res = await fetch("/api/current-user");
-    const data = await res.json();
-    if (data.player) {
-      document.getElementById("profilePic").src = data.player.profilePicUrl;
-    }
-    else {
-      document.getElementById("profilePic").src = ""; //clear img if logged out
-    }
-   } catch (err) {
-      console.error("Error loading current user:", err);
-    }
-  }
 loadProfile();
-
-document.getElementById("profilePicForm").addEventListener("submit", async (e) => {
-  e.preventDefault(); // stop the page from refreshing
-
-  const formData = new FormData();
-  const file = document.getElementById("profilePicInput").files[0];
-  formData.append("profilePic", file);
-
-  try {
-    const res = await fetch("/api/update-profile-pic", {
-      method: "POST",
-      body: formData
-    });
-
-    const data = await res.json();
-
-    if (data.player) {
-      // Update the profile picture immediately
-      document.getElementById("profilePic").src = data.player.profilePicUrl;
-    }
-  } catch (err) {
-    console.error("Error uploading profile pic:", err);
-  }
-});
 
 </script>
 
