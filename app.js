@@ -32,6 +32,22 @@ app.use(session({
 // Serve static files from the "public" folder
 app.use(express.static('public'));
 
+//we import multer for file uploads (profile pics)
+const multer = require("multer");
+
+// Configure storage for uploaded files
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");  // folder where images are saved
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname); // unique filename
+  }
+});
+
+const upload = multer({ storage });
+
+
 //serve profile pics from the uploads folder
 app.use("/uploads", express.static("uploads"));
 
@@ -151,6 +167,32 @@ app.get("/api/current-user", (req, res) => {
     res.json({ player: req.session.player });  // already full player object
   } else {
     res.json({ player: null });
+  }
+});
+
+app.post("/api/update-profile-pic", upload.single("profilePic"), async (req, res) => {
+  try {
+    // Make sure the player is logged in
+    if (!req.session || !req.session.player) {
+      return res.status(401).json({ error: "Not logged in" });
+    }
+
+    const playerId = req.session.player._id;
+    const filePath = "/uploads/" + req.file.filename;
+
+    // Update MongoDB
+    const updatedPlayer = await Player.findByIdAndUpdate(
+      playerId,
+      { profilePicUrl: filePath },
+      { new: true }
+    );
+
+    // Update session so it reflects the new profile picture immediately
+    req.session.player = updatedPlayer;
+
+    res.json({ message: "Profile picture updated!", player: updatedPlayer });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
