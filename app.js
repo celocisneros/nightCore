@@ -32,6 +32,10 @@ app.use(session({
 // Serve static files from the "public" folder
 app.use(express.static('public'));
 
+//serve profile pics from the uploads folder
+app.use("/uploads", express.static("uploads"));
+
+
 // Additional middleware to parse JSON and URL-encoded bodies
 app.use(bodyParser.json());  
 app.use(bodyParser.urlencoded({ extended: true }));
