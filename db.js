@@ -25,6 +25,6 @@ async function connectDB() {
 }
 
 // Export the client and connectDB function
-module.exports = { connectDB,
+module.exports = { connectDB, client,
   getPlayersCollection: () => playersCollection
  };
