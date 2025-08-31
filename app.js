@@ -30,38 +30,24 @@ app.use(session({
 // Serve static files from the "public" folder
 app.use(express.static('public'));
 
-//MULTER IMAGE FILE UPLOAD BLOCKS
 
-//serve the uploads folder to the public
-app.use('/uploads', express.static(__dirname + '/uploads'));
-
+//WE IMPORT MULTER
 const multer = require('multer');
+const { ObjectId } = require('mongodb');
 const path = require('path');
 
-// Set storage rules
+// 1️⃣ Multer storage setup
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/'); // save files in uploads folder
-  },
-  filename: function (req, file, cb) {
-    // create unique filename
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
+  destination: (req, file, cb) => cb(null, 'uploads/'), // make sure uploads folder exists
+  filename: (req, file, cb) => {
+    // Use player ID to avoid duplicate files
+    if (!req.session || !req.session.player) return cb(new Error('No player in session'));
+    const ext = path.extname(file.originalname); // preserve extension
+    cb(null, req.session.player._id + ext);
   }
 });
 
-// Only allow image files
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('image/')) {
-    cb(null, true);
-  } else {
-    cb(new Error('Only images allowed'));
-  }
-};
-
-const upload = multer({ storage: storage, fileFilter: fileFilter });
-
-
+const upload = multer({ storage });
 
 // Additional middleware to parse JSON and URL-encoded bodies
 app.use(bodyParser.json());  
@@ -182,36 +168,38 @@ app.get("/api/current-user", (req, res) => {
   }
 });
 //UPDATE PROFILE PIC ROUTE
+// 2️⃣ Profile pic update route
 app.post('/api/update-profile-pic', upload.single('profilePic'), async (req, res) => {
   try {
+    // Check if player is logged in
     if (!req.session || !req.session.player) {
       return res.status(401).json({ error: 'Not logged in' });
     }
 
-    const playerId = req.session.player._id;
-
-    // req.file contains info about the uploaded file
+    // Check if file was uploaded
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
+    // Build the file path for front-end
     const filePath = '/uploads/' + req.file.filename;
 
-    // Update MongoDB
-    const db = client.db('nightcore');
+    // Update MongoDB using session player _id
+    const db = client.db('yourDbName');
     const players = db.collection('players');
 
     await players.updateOne(
-      { _id: playerId },
+      { _id: new ObjectId(req.session.player._id) },
       { $set: { profilePicPath: filePath } }
     );
 
-    // Update session
+    // Update session object so front-end sees new pic immediately
     req.session.player.profilePicPath = filePath;
 
     res.json({ success: true, profilePicPath: filePath });
+
   } catch (err) {
-    console.error('Error uploading profile pic:', err);
+    console.error('Error updating profile pic:', err);
     res.status(500).json({ error: 'Server error', details: err.message });
   }
 });
