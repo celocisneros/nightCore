@@ -72,18 +72,21 @@ document.getElementById("uploadBtn").addEventListener("click", async () => {
   reader.readAsDataURL(file); // converts file to Base64
 });
 
-async function loadProfilePic() {
-  const res = await fetch("/api/current-user");
-  const data = await res.json();
+async function loadProfilePicture() {
+  try {
+    const res = await fetch("/api/current-user");
+    const data = await res.json();
 
-  if (data.player && data.player.profilePic) {
-    document.getElementById("profilePic").src = data.player.profilePic;
-  } else {
-    document.getElementById("profilePic").src = ""; // fallback
+    const img = document.getElementById("profilePic");
+    if (data.player && img) {
+      img.src = data.player.profilePic || ""; // show empty if no pic
+    }
+  } catch (err) {
+    console.error("Error loading profile pic:", err);
   }
 }
 
-loadProfilePic();
+loadProfilePicture(); // call this when the page loads
 
 </script>
 
