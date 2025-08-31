@@ -4,6 +4,11 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const { client, connectDB, getPlayersCollection } = require("./db"); // << here
 
+// Create an Express app
+const app = express();  
+const PORT = 3000;
+const HOST = '0.0.0.0'; 
+
 //import routes
 const authRoutes = require("./routes/authRoutes");
 const playerRoutes = require("./routes/playerRoutes");
@@ -31,11 +36,6 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connect to MongoDB
 connectDB();
-
-// Create an Express app
-const app = express();  
-const PORT = 3000;
-const HOST = '0.0.0.0'; 
 
 // Start the server
 app.listen(PORT, HOST, () => {
