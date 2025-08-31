@@ -30,8 +30,6 @@ app.use(session({
 // Serve static files from the "public" folder
 app.use(express.static('public'));
 
-app.use(express.json({ limit: "5mb" })); // allow JSON body up to 5MB
-
 // Additional middleware to parse JSON and URL-encoded bodies
 app.use(bodyParser.json());  
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -147,43 +145,6 @@ app.get("/api/current-user", (req, res) => {
     res.json({ player: req.session.player });  // already full player object
   } else {
     res.json({ player: null });
-  }
-});
-
-//SAVE PROFILE PIC TO DB
-app.post("/api/update-profile-pic", async (req, res) => {
-  try {
-    // Step 2a: Make sure the player is logged in
-    if (!req.session || !req.session.player) {
-      return res.status(401).json({ error: "Not logged in" });
-    }
-
-    // Step 2b: Grab the player ID and the uploaded image
-    const playerId = req.session.player._id;
-    const base64Image = req.body.profilePic;
-
-    if (!base64Image) {
-      return res.status(400).json({ error: "No profilePic in body" });
-    }
-
-    // Step 2c: Connect to the MongoDB collection
-    const db = client.db("yourDbName");       // replace with your DB name
-    const players = db.collection("players"); // replace with your collection name
-
-    // Step 2d: Update the profilePic field for the logged-in player
-    const result = await players.updateOne(
-      { _id: playerId },
-      { $set: { profilePic: base64Image } }
-    );
-
-    // Step 2e: Update the session copy
-    req.session.player.profilePic = base64Image;
-
-    res.json({ success: true, profilePic: base64Image });
-
-  } catch (err) {
-    console.error("Error updating profile pic:", err);
-    res.status(500).json({ error: "Server error", details: err.message });
   }
 });
 

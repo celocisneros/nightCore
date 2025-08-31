@@ -8,8 +8,6 @@
 <body>
   <h1>Welcome to Your Dashboard</h1>
 
-  <img id="profilePic" alt="Profile Picture" width="150" height="150" />
-
 <div id="profile">
 </div>
 
@@ -20,8 +18,6 @@
   <a href="logout">logout</a>
 </div>
 
-<input type="file" id="profileUpload" accept="image/*" />
-<button id="uploadBtn">Upload Profile Pic</button>
 
 <script>
 async function loadProfile() {
@@ -49,44 +45,6 @@ async function loadProfile() {
 
 loadProfile();
 
-//upload and convert image to base 64 string and send to api to save in mongo db
-document.getElementById("uploadBtn").addEventListener("click", async () => {
-  const fileInput = document.getElementById("profileUpload");
-  const file = fileInput.files[0];
-  if (!file) return alert("Please select a file");
-
-  const reader = new FileReader();
-  reader.onloadend = async () => {
-    const base64Image = reader.result; // <-- this is the Base64 string
-
-    // Send it to backend
-    await fetch("/api/update-profile-pic", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ profilePic: base64Image })
-    });
-
-    alert("Profile picture updated!");
-  };
-
-  reader.readAsDataURL(file); // converts file to Base64
-});
-
-async function loadProfilePicture() {
-  try {
-    const res = await fetch("/api/current-user");
-    const data = await res.json();
-
-    const img = document.getElementById("profilePic");
-    if (data.player && img) {
-      img.src = data.player.profilePic || ""; // show empty if no pic
-    }
-  } catch (err) {
-    console.error("Error loading profile pic:", err);
-  }
-}
-
-loadProfilePicture(); // call this when the page loads
 
 </script>
 
