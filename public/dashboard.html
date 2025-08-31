@@ -8,7 +8,9 @@
 <body>
   <h1>Welcome to Your Dashboard</h1>
 
-<div id="profile"></div>
+<div id="profile">
+  <img id="profilePic">
+</div>
 
 <div id="dashNav">
   <a href="dashboard">dashboard</a>
@@ -41,6 +43,20 @@ async function loadProfile() {
   }
 }
 
+async function loadProfilePicture(){
+  try {
+    const res = await fetch("/api/current-user");
+    const data = await res.json();
+    if (data.player) {
+      document.getElementById("profilePic").src = data.player.profilePicUrl;
+    }
+    else {
+      document.getElementById("profilePic").src = ""; //clear img if logged out
+    }
+   } catch (err) {
+      console.error("Error loading current user:", err);
+    }
+  }
 loadProfile();
 </script>
 
