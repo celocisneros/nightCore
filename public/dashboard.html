@@ -8,6 +8,11 @@
 <body>
   <h1>Welcome to Your Dashboard</h1>
 
+<input type="file" id="uploadPic" />
+<button id="updatePicBtn">Update Profile Pic</button>
+<img id="profilePic" src="" alt="Profile Picture" />
+
+
 <div id="profile">
 </div>
 
@@ -44,6 +49,28 @@ async function loadProfile() {
 }
 
 loadProfile();
+
+document.getElementById('updatePicBtn').addEventListener('click', async () => {
+  const fileInput = document.getElementById('uploadPic');
+  const file = fileInput.files[0];
+  if (!file) return alert('Select an image first!');
+
+  const formData = new FormData();
+  formData.append('profilePic', file);
+
+  const res = await fetch('/api/update-profile-pic', {
+    method: 'POST',
+    body: formData
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    document.getElementById('profilePic').src = data.profilePicPath;
+  } else {
+    alert(data.error);
+  }
+});
 
 
 </script>
