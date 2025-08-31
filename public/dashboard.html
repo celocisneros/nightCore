@@ -8,8 +8,6 @@
 <body>
   <h1>Welcome to Your Dashboard</h1>
 
-  <img id="profilePic" height="150" width="150">
-
 <div id="profile">
 </div>
 
@@ -19,9 +17,6 @@
   <a href="train.html">train</a>
   <a href="logout">logout</a>
 </div>
-
-<input type="text" id="profilePicUrlInput" placeholder="Enter image URL">
-<button id="updatePicBtn">Update Profile Picture</button>
 
 
 <script>
@@ -49,27 +44,6 @@ async function loadProfile() {
 }
 
 loadProfile();
-
-//to update profile pic with players own url
-async function updateProfilePic(url) {
-  const res = await fetch("/api/update-profile-pic-url", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ profilePicUrl: url }),
-    credentials: "include"  // 🔥 this is critical
-  });
-
-  const data = await res.json();
-  console.log(data);
-}
-
-// attach it to the button
-document.getElementById("updatePicBtn").addEventListener("click", () => {
-  const newUrl = document.getElementById("profilePicUrlInput").value;
-  if (newUrl.trim()) {
-    updateProfilePic(newUrl);
-  }
-});
 
 </script>
 
