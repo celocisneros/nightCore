@@ -198,7 +198,7 @@ app.post('/api/update-profile-pic', upload.single('profilePic'), async (req, res
     const filePath = '/uploads/' + req.file.filename;
 
     // Update MongoDB
-    const db = client.db('yourDbName');
+    const db = client.db('nightcore');
     const players = db.collection('players');
 
     await players.updateOne(
