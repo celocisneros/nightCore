@@ -2,6 +2,7 @@
 const express = require('express'); 
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const path = require('path');
 const { client, connectDB, getPlayersCollection } = require("./db"); // << here
 
 // Create an Express app
