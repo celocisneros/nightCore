@@ -12,11 +12,6 @@ const playerRoutes = require("./routes/playerRoutes");
 app.use("/api", authRoutes);
 app.use("/api", playerRoutes);
 
-// Create an Express app
-const app = express();  
-const PORT = 3000;
-const HOST = '0.0.0.0'; 
-
 //json middleware
 app.use(express.json());
 app.use(bodyParser.json());  
@@ -36,6 +31,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connect to MongoDB
 connectDB();
+
+// Create an Express app
+const app = express();  
+const PORT = 3000;
+const HOST = '0.0.0.0'; 
 
 // Start the server
 app.listen(PORT, HOST, () => {
