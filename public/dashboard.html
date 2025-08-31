@@ -51,25 +51,25 @@ async function loadProfile() {
 loadProfile();
 
 //to update profile pic with players own url
-document.getElementById("updatePicBtn").addEventListener("click", async () => {
-  const url = document.getElementById("profilePicUrlInput").value;
+async function updateProfilePic(url) {
+  const res = await fetch("/api/update-profile-pic-url", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ profilePicUrl: url }),
+    credentials: "include"  // 🔥 this is critical
+  });
 
-  try {
-    const res = await fetch("/api/update-profile-pic-url", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ profilePicUrl: url })
-    });
-    const data = await res.json();
+  const data = await res.json();
+  console.log(data);
+}
 
-    if (data.player) {
-      document.getElementById("profilePic").src = data.player.profilePicUrl;
-    }
-  } catch (err) {
-    console.error(err);
+// attach it to the button
+document.getElementById("updatePicBtn").addEventListener("click", () => {
+  const newUrl = document.getElementById("picUrlInput").value;
+  if (newUrl.trim()) {
+    updateProfilePic(newUrl);
   }
 });
-
 
 </script>
 

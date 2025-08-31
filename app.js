@@ -168,6 +168,10 @@ app.get("/api/current-user", (req, res) => {
 
 //ROUTE TO UPDATE PIC
 app.post("/api/update-profile-pic-url", async (req, res) => {
+  if (!req.session || !req.session.player) {
+    return res.status(401).json({ error: "Not logged in" });
+  }
+
   const playerId = req.session.player._id;
   const { profilePicUrl } = req.body;
 
@@ -177,9 +181,10 @@ app.post("/api/update-profile-pic-url", async (req, res) => {
     { new: true }
   );
 
-  req.session.player = updatedPlayer;
+  req.session.player = updatedPlayer; // keep session in sync
   res.json({ player: updatedPlayer });
 });
+
 
 
 
