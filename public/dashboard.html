@@ -72,6 +72,25 @@ document.getElementById('updatePicBtn').addEventListener('click', async () => {
   }
 });
 
+async function loadProfilePic() {
+  try {
+    const res = await fetch("/api/current-user");
+    const data = await res.json();
+
+    if (!data.player) {
+      document.getElementById("profile").innerText = "Not logged in.";
+      return;
+    }
+
+    // Example: show username + stats
+    const player = data.player;
+    document.getElementById("profilePic").src = player.profilePicPath;
+  } catch (err) {
+    console.error("Error loading profile picture:", err);
+  }
+}
+
+loadProfilePic();
 
 </script>
 
