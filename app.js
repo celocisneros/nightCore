@@ -30,23 +30,7 @@ app.use(session({
 // Serve static files from the "public" folder
 app.use(express.static('public'));
 
-//we import multer for file uploads (profile pics)
-const multer = require("multer");
-
-// Configure storage for uploaded files
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");  // folder where images are saved
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname); // unique filename
-  }
-});
-
-const upload = multer({ storage });
-
-//serve profile pics from the uploads folder
-app.use("/uploads", express.static("uploads"));
+app.use(express.json({ limit: "5mb" })); // allow JSON body up to 5MB
 
 // Additional middleware to parse JSON and URL-encoded bodies
 app.use(bodyParser.json());  
