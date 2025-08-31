@@ -36,3 +36,6 @@ body{
 #dashNav a:hover{
     color: red;
 }
+#profilePic{
+    width: 150px;
+}
