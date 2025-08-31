@@ -8,16 +8,10 @@
 <body>
   <h1>Welcome to Your Dashboard</h1>
 
+  <img id="profilePic" width="150">
+
 <div id="profile">
 </div>
-
-  <img id="profilePic" width="150" src="/uploads/celoProfilePic.jpg">
-
-
-<form id="profilePicForm" enctype="multipart/form-data">
-  <input type="file" name="profilePic" id="profilePicInput" />
-  <button type="submit">Update Profile Picture</button>
-</form>
 
 <div id="dashNav">
   <a href="dashboard">dashboard</a>
@@ -25,6 +19,10 @@
   <a href="train.html">train</a>
   <a href="logout">logout</a>
 </div>
+
+<input type="text" id="profilePicUrlInput" placeholder="Enter image URL">
+<button id="updatePicBtn">Update Profile Picture</button>
+
 
 <script>
 async function loadProfile() {
@@ -51,6 +49,27 @@ async function loadProfile() {
 }
 
 loadProfile();
+
+//to update profile pic with players own url
+document.getElementById("updatePicBtn").addEventListener("click", async () => {
+  const url = document.getElementById("profilePicUrlInput").value;
+
+  try {
+    const res = await fetch("/api/update-profile-pic-url", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ profilePicUrl: url })
+    });
+    const data = await res.json();
+
+    if (data.player) {
+      document.getElementById("profilePic").src = data.player.profilePicUrl;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 
 </script>
 

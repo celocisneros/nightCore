@@ -166,6 +166,21 @@ app.get("/api/current-user", (req, res) => {
   }
 });
 
+//ROUTE TO UPDATE PIC
+app.post("/api/update-profile-pic-url", async (req, res) => {
+  const playerId = req.session.player._id;
+  const { profilePicUrl } = req.body;
+
+  const updatedPlayer = await Player.findByIdAndUpdate(
+    playerId,
+    { profilePicUrl },
+    { new: true }
+  );
+
+  req.session.player = updatedPlayer;
+  res.json({ player: updatedPlayer });
+});
+
 
 
 // Start the server
