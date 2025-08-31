@@ -36,6 +36,9 @@ const multer = require('multer');
 const { ObjectId } = require('mongodb');
 const path = require('path');
 
+//make uploads folder accessible
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // 1️⃣ Multer storage setup
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, 'uploads/'), // make sure uploads folder exists
