@@ -153,6 +153,10 @@ app.get("/api/current-user", (req, res) => {
 //SAVE PROFILE PIC TO DB
 app.post("/api/update-profile-pic", async (req, res) => {
   try {
+    console.log("REQ BODY:", req.body);   // log body
+    console.log("SESSION PLAYER:", req.session.player); // log session
+
+
     if (!req.session.player) {
       return res.status(401).json({ error: "Not logged in" });
     }
