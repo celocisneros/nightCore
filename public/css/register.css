@@ -26,3 +26,8 @@ form{
     text-align: center;
     align-items: center;
 }
+button{
+    background-color: #cc6699;
+    color: white;
+    padding: 10px;
+}
