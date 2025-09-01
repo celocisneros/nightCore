@@ -41,11 +41,13 @@ router.post("/register", async (req, res) => {
       password,
       email,
       createdAt: new Date(),
-      stats: {
-        hp: 100,
-        attack: 10,
-        defense: 5
-      }
+      hp: 100,
+      xp: 0,
+      yen: 0,
+      attack: 10,
+      defense: 10,
+      profilePicPath: '',
+      level: 1
     };
 
     // 7. Insert this new player document into the "players" collection
