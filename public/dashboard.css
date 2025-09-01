@@ -53,7 +53,15 @@ body{
 }
 #uploadPic{
     margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #333399;
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+}
+#updatePicBtn{
+    margin-top: 20px;
+    background-color: #333399;
     color: #f5f5f5;
     margin-bottom: 20px;
     padding: 20px;
