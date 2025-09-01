@@ -24,6 +24,9 @@
 <input type="file" id="uploadPic" />
 <button id="updatePicBtn">Update Profile Pic</button>
 
+<button id="deleteBtn">Delete Account</button>
+
+
 <script>
 async function loadProfile() {
   try {
@@ -102,7 +105,21 @@ async function logout() {
   window.location.href = "/login.html"; // redirect to login
 }
 
+//this will be to delete player and account and logout
+  document.getElementById("deleteBtn").addEventListener("click", async () => {
+    if (!confirm("Are you sure you want to delete your account?")) return;
 
+    const res = await fetch("/api/player-delete", { method: "DELETE" });
+    
+
+    if (res.ok) {
+      alert("Account deleted.");
+      window.location.href = "/register.html"; // or wherever you want to redirect
+    } else {
+      const data = await res.json();
+      alert("Error: " + data.message);
+    }
+  });
 </script>
 
 

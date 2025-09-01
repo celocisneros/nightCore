@@ -119,5 +119,34 @@ router.post("/logout", (req, res) => {
   });
 });
 
+// DELETE player and logout
+router.delete("/player-delete", async (req, res) => {
+  try {
+    // make sure session exists
+    if (!req.session.user) {
+      return res.status(401).json({ message: "Not logged in" });
+    }
+
+    const client = await MongoClient.connect(process.env.MONGO_URI);
+    const db = client.db("nightCore"); // change to your DB name
+
+    // delete the player by their user id from session
+    await db.collection("players").deleteOne({
+      _id: new ObjectId(req.session.user._id),
+    });
+
+    // destroy session
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ message: "Error ending session" });
+      }
+      res.clearCookie("connect.sid"); // remove cookie
+      res.json({ message: "Player deleted and logged out" });
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
 module.exports = router;
