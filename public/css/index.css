@@ -27,6 +27,9 @@ body{
     border-radius: 20px;
     padding: 10px;
 }
+#nav a:hover{
+    background-color: fuchsia;
+}
 .register{
     color: hotpink;
 }
