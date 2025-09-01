@@ -11,8 +11,8 @@ body{
     background-size: cover;
 }
 label{
-    color: #cc6699;
-
+    color: white;
+    font-size: 30px;
 }
 #message{
     background-color: black;
@@ -21,4 +21,8 @@ label{
 h1{
     color: white;
     font-weight: bolder;
+}
+form{
+    text-align: center;
+    align-items: center;
 }
