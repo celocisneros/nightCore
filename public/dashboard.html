@@ -51,6 +51,7 @@ async function loadProfile() {
 
 loadProfile();
 
+//this sends the file you upload to the uploads folder and saves the path in the current users player object in the database
 document.getElementById('updatePicBtn').addEventListener('click', async () => {
   const fileInput = document.getElementById('uploadPic');
   const file = fileInput.files[0];
@@ -72,6 +73,7 @@ document.getElementById('updatePicBtn').addEventListener('click', async () => {
     alert(data.error);
   }
 });
+
 
 async function loadProfilePic() {
   try {
