@@ -9,7 +9,6 @@ body{
     background: linear-gradient(to bottom, #333399 0%, #cc6699 100%);
     background-repeat: no-repeat;
     background-size: cover;
-    height: fit-content;
 }
 #profile{
     background-color: rgba(0, 0, 0, 0.7);
@@ -53,18 +52,14 @@ body{
     margin-bottom: 20px;
 }
 #uploadPic{
-    margin-top: 20px;
     background-color: #333399;
     color: #f5f5f5;
-    margin-bottom: 20px;
     padding: 20px;
     border-radius: 12px;
 }
 #updatePicBtn{
-    margin-top: 20px;
     background-color: #333399;
     color: #f5f5f5;
-    margin-bottom: 20px;
     padding: 20px;
     border-radius: 12px;
 }
@@ -76,15 +71,12 @@ h2{
     margin: 20px 0;
 }
 #deleteBtn{
-    margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     color: #f5f5f5;
-    margin-bottom: 20px;
     padding: 20px;
     border-radius: 12px;
 }
 #options{
     display: flex;
     flex-direction: column;
-    height: fit-content;
 }
