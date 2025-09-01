@@ -36,12 +36,8 @@ async function loadProfile() {
 
     // Example: show username + stats
     const player = data.player;
-    document.getElementById("profile").innerHTML = `
-      <h3>${player.username}'s Profile</h3>
-      <p>Level: ${player.level}</p>
-      <p>XP: ${player.xp}</p>
-      <p>HP: ${player.hp}</p>
-    `;
+    document.getElementById("profile").innerHTML = `username: ${player.username}<br>
+    level: ${player.level}<br> hp: ${player.hp}<br> xp: ${player.xp}`;
     console.log(`now logging the current player object to the console`);
     console.log(player);
   } catch (err) {
