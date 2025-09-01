@@ -28,7 +28,7 @@ body{
     padding: 10px;
 }
 #nav a:hover{
-    background-color: fuchsia;
+    color: fuchsia;
 }
 .register{
     color: hotpink;
