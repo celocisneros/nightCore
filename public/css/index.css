@@ -14,7 +14,7 @@ body{
     scale: 25%;
     margin-top: -300px;
     margin-bottom: -300px;
-    border-radius: 180px;
+    border-radius: 360px;
 }
 #nav{
     display: flex;
