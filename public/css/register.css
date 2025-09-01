@@ -29,7 +29,8 @@ form{
 button{
     background-color: #cc6699;
     color: white;
-    padding: 20px;
+    padding: 10px;
     font-weight: bolder;
+    font-size: larger;
     border-radius: 20px;
 }
