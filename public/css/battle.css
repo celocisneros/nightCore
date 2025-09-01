@@ -43,12 +43,10 @@ body{
     float: right;
     width: fit-content;
     height: fit-content;
-    border: solid 1px black;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 40px;
-    background-color: crimson;
 }
 #choiceBox{
     display: flex;
