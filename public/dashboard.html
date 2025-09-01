@@ -34,8 +34,9 @@ async function loadProfile() {
       return;
     }
 
-    // Example: show username + stats
+//creates a variable named player from the player object we fetched
     const player = data.player;
+    
     document.getElementById("profile").innerHTML = 
     `profile <br> 
     username: ${player.username}<br>
