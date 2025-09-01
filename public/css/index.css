@@ -20,10 +20,12 @@ body{
     display: flex;
     flex-direction: row;
     gap: 50px;
-    background-color: #333399;
 }
 #nav a{
     font-size: 30px;
+    background-color: #333399;
+    border-radius: 20px;
+    padding: 10px;
 }
 .register{
     color: hotpink;
