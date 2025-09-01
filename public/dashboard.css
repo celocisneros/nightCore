@@ -25,12 +25,12 @@ body{
     text-align: center;
     background-color: #d9d9d9;
     padding: 20px;
-    border: solid 2px #ccb3ff;
+    border: solid 2px #aa80ff;
     position: fixed;
     left: 75%;
 }
 #dashNav a{
-    color: #ccb3ff;
+    color: #aa80ff;
     font-size: 22px;
 }
 #dashNav a:hover{
