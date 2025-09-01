@@ -109,8 +109,8 @@ async function logout() {
   document.getElementById("deleteBtn").addEventListener("click", async () => {
     if (!confirm("Are you sure you want to delete your account?")) return;
 
-    const res = await fetch("/api/player-delete", { method: "DELETE" });
-    
+    const res = await fetch("/api/player-delete", { method: "DELETE", credentials: "include" });
+
 
     if (res.ok) {
       alert("Account deleted.");
