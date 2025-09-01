@@ -5,8 +5,8 @@ body{
 }
 #logo{
     scale: 25%;
-    margin-top: -200px;
-    margin-bottom: -200px;
+    margin-top: -300px;
+    margin-bottom: -300px;
 }
 #nav{
     display: flex;
