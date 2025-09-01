@@ -12,4 +12,6 @@ make the registration and login page spicier and the font size bigger for mobile
 research if i need to make separate apis for adding different things to the player object
 ex. adding yen(money) or adding xp or adding items etc..
 
+creating a css file for every page to get rid of the style blocks
 
+create a css folder to hold all the css files - then update the path in the html files
