@@ -11,7 +11,8 @@ body{
     background-size: cover;
 }
 label{
-    color: fuchsia;
+    color: #cc6699;
+
 }
 #message{
     background-color: black;
