@@ -9,6 +9,7 @@ body{
     scale: 25%;
     margin-top: -300px;
     margin-bottom: -300px;
+    border-radius: 90px;
 }
 #nav{
     display: flex;
