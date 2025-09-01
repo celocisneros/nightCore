@@ -9,7 +9,6 @@ body{
     background: linear-gradient(to bottom, #333399 0%, #cc6699 100%);
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 30px;
 }
 label{
     color: fuchsia;
