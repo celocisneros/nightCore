@@ -4,6 +4,7 @@ body{
     align-items: center;
     justify-content: center;
     background: linear-gradient(to bottom, #333399 0%, #cc6699 100%);
+    background-repeat: no-repeat;
 }
 #profile{
     background-color:  #d9d9d9;
