@@ -51,3 +51,10 @@ body{
 #uploadPic{
     margin-top: 20px;
 }
+h1{
+    color: #f0f0f0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    font-weight: 700; 
+    margin: 20px 0;
+}
