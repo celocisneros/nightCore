@@ -36,7 +36,7 @@
         const res = await fetch("/api/current-user");
         const data = await res.json();
         const player = data.player;
-        document.getElementById('playerStats').textContent = player;
+        document.getElementById('playerStats').textContent = `Player: ${player.username}`;
     }
     getPlayer();
 </script>
