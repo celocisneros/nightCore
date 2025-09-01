@@ -1,0 +1,13 @@
+create a "playerLogic" external js file for the dashboard to handle:
+player delete and profile pic update
+
+create a dashboardUI js file to handle filling in the ui fetching the current player playerLogic
+
+spice up the index landing page 
+
+make the registration and login page spicier and the font size bigger for mobile
+
+research if i need to make separate apis for adding different things to the player object
+ex. adding yen(money) or adding xp or adding items etc..
+
+
