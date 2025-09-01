@@ -98,7 +98,7 @@ loadProfilePic();
 
 //this is to logout the current player
 async function logout() {
-  await fetch("/api/logout", { method: "POST" });
+  await fetch("/logout", { method: "POST" });
   window.location.href = "/login.html"; // redirect to login
 }
 
