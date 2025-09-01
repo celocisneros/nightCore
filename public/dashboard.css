@@ -3,7 +3,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color:  #aa80ff;
+    background-color:  #ccb3ff;
 }
 #profile{
     background-color:  #d9d9d9;
@@ -14,7 +14,7 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: solid 2px #aa80ff;
+    border: solid 2px #ccb3ff;
     font-size: 22px;
 }
 #dashNav{
@@ -25,12 +25,12 @@ body{
     text-align: center;
     background-color: #d9d9d9;
     padding: 20px;
-    border: solid 2px #aa80ff;
+    border: solid 2px #ccb3ff;
     position: fixed;
     left: 75%;
 }
 #dashNav a{
-    color: #aa80ff;
+    color: #ccb3ff;
     font-size: 22px;
 }
 #dashNav a:hover{
