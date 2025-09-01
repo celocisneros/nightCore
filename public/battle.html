@@ -37,6 +37,8 @@
         const data = await res.json();
         const player = data.player;
         document.getElementById('playerStats').textContent = `Player: ${player.username}`;
+        console.log(`now logging the current player object`);
+        console.log(player);
     }
     getPlayer();
 </script>
