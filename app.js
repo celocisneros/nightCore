@@ -33,10 +33,12 @@ connectDB();
 //import routes
 const authRoutes = require("./routes/authRoutes");
 const playerRoutes = require("./routes/playerRoutes");
+const monsterRoutes = require("./routes/monsterRoutes");
 
 //use routes
 app.use("/api", authRoutes);
 app.use("/api", playerRoutes);
+app.use("/api/monster", monsterRoutes);
 
 // Start the server
 app.listen(PORT, HOST, () => {
