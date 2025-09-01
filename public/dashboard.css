@@ -20,7 +20,7 @@ body{
     justify-content: center;
     text-align: center;
     border: solid 2px #ccb3ff;
-    font-size: 28px;
+    font-size: 30px;
 }
 #dashNav{
     display: flex;
@@ -47,7 +47,7 @@ body{
     color: darkcyan;
 }
 #profilePic{
-    width: 200px;
+    width: 250px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
