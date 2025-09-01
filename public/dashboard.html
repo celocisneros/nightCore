@@ -18,7 +18,7 @@
   <a href="dashboard">dashboard</a>
   <a href="battle.html">battle</a>
   <a href="train.html">train</a>
-  <a href="logout">logout</a>
+  <a onclick="logout()" href="logout">logout</a>
 </div>
 
 <input type="file" id="uploadPic" />
@@ -95,6 +95,13 @@ async function loadProfilePic() {
 }
 
 loadProfilePic();
+
+//this is to logout the current player
+async function logout() {
+  await fetch("/api/logout", { method: "POST" });
+  window.location.href = "/login.html"; // redirect to login
+}
+
 
 </script>
 
