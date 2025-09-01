@@ -32,6 +32,13 @@
 <button onclick="window.location.href='dashboard.html'">go back to dashboard</button>
 
 <script>
+    async function getPlayer() {
+        const res = await fetch("/api/current-user");
+        const data = await res.json();
+        const player = data.player;
+        document.getElementById('playerStats').innerHTML = player;
+    }
+    getPlayer();
 </script>
 
 </body>
