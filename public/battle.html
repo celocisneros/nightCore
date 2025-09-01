@@ -11,6 +11,7 @@
 <div id="battleContainer">
 
 <div id="playerBox">
+    <img id="profilePic" src="" width="100"/>
 <div id="playerStats"></div>
 </div> <!--end of player box-->
 
@@ -37,6 +38,7 @@
         const data = await res.json();
         const player = data.player;
         document.getElementById('playerStats').textContent = `Player: ${player.username}`;
+        document.getElementById('profilePic').src = player.profilePicPath;
         console.log(`now logging the current player object`);
         console.log(player);
     }
