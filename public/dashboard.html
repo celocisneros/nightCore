@@ -29,7 +29,6 @@ async function loadProfile() {
   try {
     const res = await fetch("/api/current-user");
     const data = await res.json();
-
     if (!data.player) {
       document.getElementById("profile").innerText = "Not logged in.";
       return;
@@ -43,6 +42,8 @@ async function loadProfile() {
       <p>XP: ${player.xp}</p>
       <p>HP: ${player.hp}</p>
     `;
+    console.log(`now logging the current player object to the console`);
+    console.log(player);
   } catch (err) {
     console.error("Error loading profile:", err);
   }

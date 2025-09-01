@@ -34,11 +34,14 @@
 
 <script>
     async function getPlayer() {
+        //this fetches from the playerRoutes api current user to grab player object
         const res = await fetch("/api/current-user");
         const data = await res.json();
         const player = data.player;
-        document.getElementById('playerStats').textContent = `Player: ${player.username}`;
+        //place the current players profile picture into the player box div
         document.getElementById('profilePic').src = player.profilePicPath;
+        //place the current player username into the playerStats div
+        document.getElementById('playerStats').textContent = `Player: ${player.username}`;
         console.log(`now logging the current player object`);
         console.log(player);
     }
