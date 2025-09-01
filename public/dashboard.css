@@ -3,7 +3,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color:  #ccb3ff;
+    background: linear-gradient(to bottom, #333399 0%, #cc6699 100%);
 }
 #profile{
     background-color:  #d9d9d9;
