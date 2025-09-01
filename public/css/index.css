@@ -2,6 +2,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(to bottom, #333399 0%, #cc6699 100%);
+
 }
 #logo{
     scale: 25%;
@@ -11,9 +13,15 @@ body{
 #nav{
     display: flex;
     flex-direction: row;
-    border: solid 1px red;
+    gap: 50px;
+    background-color: #333399;
 }
 #nav a{
-    color: black;
     font-size: 30px;
+}
+.register{
+    color: hotpink;
+}
+.login{
+    color: violet;
 }
