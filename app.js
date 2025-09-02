@@ -38,7 +38,7 @@ const monsterRoutes = require("./routes/monsterRoutes");
 //use routes
 app.use("/api", authRoutes);
 app.use("/api", playerRoutes);
-app.use("/api/monster", monsterRoutes);
+app.use("/api/monsters", monsterRoutes);
 
 // Start the server
 app.listen(PORT, HOST, () => {
