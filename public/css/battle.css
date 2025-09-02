@@ -57,7 +57,7 @@ body{
     padding: 40px;
     flex-direction: column;
     gap: 20px;
-    background: linear-gradient(to top, crimson 0%, white 100%);
+    background: linear-gradient(to top, crimson 0%, grey 100%);
 
 }
 #choiceBox button{
@@ -66,13 +66,13 @@ body{
     border-radius: 10px;
     font-size: larger;
     font-weight: bolder;
-    background: linear-gradient(to bottom, crimson 0%, white 100%);
+    background: linear-gradient(to bottom, crimson 0%, grey 100%);
 }
 pre{
     font-size: larger;
 }
 button{
-    background: linear-gradient(to top, crimson 0%, white 100%);
+    background: linear-gradient(to top, crimson 0%, grey 100%);
     color: linear-gradient(to top, crimson 0%, black 50%);
     font-size: larger;
     font-weight: bolder;
