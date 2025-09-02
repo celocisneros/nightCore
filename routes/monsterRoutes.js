@@ -4,7 +4,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 const { client, connectDB, getPlayersCollection } = require("../db");
 
 
-router.get("/:name?", async (req, res) => {
+router.get("/loadRandom", async (req, res) => {
   try {
     await client.connect();
     const db = client.db("nightcore");

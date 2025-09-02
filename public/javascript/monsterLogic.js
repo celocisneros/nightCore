@@ -2,7 +2,7 @@
 //THIS SCRIPT GRABS A MONSTER BY NAME OR A RANDOM ONE
 async function loadMonster(monsterName = "") {
     try {
-      const res = await fetch(`/api/monsters/${monsterName}`);
+      const res = await fetch(`/api/monsters/loadRandom`);
       const monster = await res.json();
 
       const container = document.getElementById("enemyStats");
