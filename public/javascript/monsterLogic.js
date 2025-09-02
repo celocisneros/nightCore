@@ -18,4 +18,4 @@ async function loadMonster(monsterName = "") {
   }
 
   // Load random monster with no name in parameters
-  loadMonster(bat);
+  //loadMonster();
