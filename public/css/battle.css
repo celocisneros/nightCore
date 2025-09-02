@@ -61,7 +61,7 @@ body{
 
 }
 #choiceBox button{
-    color: linear-gradient(to top, crimson 0%, black 100%;
+    color: linear-gradient(to top, crimson 0%, black 100%);
     padding: 10px;
     border-radius: 10px;
     font-size: larger;
