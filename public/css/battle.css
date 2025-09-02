@@ -61,7 +61,7 @@ body{
 
 }
 #choiceBox button{
-    color: linear-gradient(to top, crimson 0%, black 50%);
+    color: white;
     padding: 10px;
     border-radius: 10px;
     font-size: larger;
@@ -70,11 +70,15 @@ body{
 }
 pre{
     font-size: larger;
+    color: white;
 }
 button{
     background: linear-gradient(to top, crimson 0%, grey 100%);
-    color: linear-gradient(to top, crimson 0%, black 50%);
+    color: white;
     font-size: larger;
     font-weight: bolder;
     margin: auto;
+}
+p{
+    color: white;
 }
