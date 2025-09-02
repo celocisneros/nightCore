@@ -1,19 +1,53 @@
-create a "playerLogic" external js file for the dashboard to handle:
-player delete and profile pic update
 
-create a dashboardUI js file to handle filling in the ui fetching the current player
 
 ^these 2 here would clear up a lot of room in the dashboard html
-
-spice up the index landing page(DONE)
 
 make the registration and login page spicier and the font size bigger for mobile(HALF WAY DONE)
 
 research if i need to make separate apis for adding different things to the player object
 ex. adding yen(money) or adding xp or adding items etc..
 
-creating a css file for every page to get rid of the style blocks (DONE)
-
-create a css folder to hold all the css files - then update the path in the html files (DONE)
-
 create enemy object in database, fetch into enemy stats inside enemy box on battle page
+
+
+BATTLE FLOW WITH MONGO DB + SESSIONS STEPS {
+
+STEP 1: Players Collection, Monsters Collection, And Sessions
+
+STEP 2: WHEN A PLAYER CLICKS FIGHT THIS MONSTER YOU NEED TOO
+*GET THE CURRENT PLAYER
+*GRAB A MONSTER
+*CREATE A TEMPORARY BATTLE STATE EITHER IN LOCAL STORAGE OR THE DATABASE(IWANTDATABASE)
+
+STEP 3:
+PLAYERS TURN:
+PLAYER ATTACKS MONSTER
+SUBTRACT PLAYERS.ATTACK FROM MONSTERS.HP
+IF MONSTERS HP IS < OR = TO 0 THEN MONSTER IS DEFEATED
+REWARD PLAYER ON DEFEAT (XP,GOLD,ITEMS)
+
+MONSTERS TURN:
+IF STILL ALIVE
+MONSTER ATTACKS PLAYER
+SUBTRACT MONSTERS ATTACK FROM PLAYERS HP
+IF PLAYERS HP IS 0 PLAYER IS DEFEATED BATTLE ENDS
+RESET HP BACK TO 100 AND LEAVE THE BATTLE SCREEN 
+SEND MESSAGE TO INBOX ABOUT BATTLE
+ADD LOSS TO stats
+};
+
+COMPLETED:
+create a css folder to hold all the css files - then update the path in the html files (DONE)
+creating a css file for every page to get rid of the style blocks (DONE)
+spice up the index landing page(DONE)
+create a dashboardUI js file to handle filling in the ui fetching the current player(DONE)
+
+monster{
+    name: "bat",
+    attack: 5;
+    hp: 5;
+    exp: 25;
+    move: "slash";
+    profilePicPath: '/uploads';
+    yen: 10;
+}
