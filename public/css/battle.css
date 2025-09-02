@@ -6,7 +6,7 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(to bottom, grey 0%, green 100%);
+    background: linear-gradient(to bottom, crimson 0%, white 100%);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -28,7 +28,8 @@ body{
     border: solid 1px black;
     gap: 300px;
     padding: 50px;
-    background-color: mediumspringgreen;
+    background: linear-gradient(to top, crimson 0%, white 100%);
+
 }
 #playerBox{
     float: left;
@@ -56,12 +57,16 @@ body{
     padding: 40px;
     flex-direction: column;
     gap: 20px;
+    background: linear-gradient(to top, crimson 0%, white 100%);
+
 }
 #choiceBox button{
     color: white;
     padding: 10px;
     border-radius: 10px;
     font-size: larger;
+    background: linear-gradient(to bottom, crimson 0%, white 100%);
+
 }
 pre{
     font-size: larger;
