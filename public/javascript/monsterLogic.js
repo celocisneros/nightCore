@@ -7,7 +7,7 @@ async function loadMonster(monsterName = "") {
 
       const container = document.getElementById("enemyStats");
       container.innerHTML = `
-        <img src="${monster.profilePicPath}" alt="${monster.name}" width="150">
+        <img src="${monster.profilePicPath}" alt="${monster.name}" width="100">
         <p>${monster.name}<p>
         <p>HP: ${monster.hp}</p>
         <p>Attack: ${monster.attack}</p>
