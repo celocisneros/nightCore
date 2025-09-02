@@ -61,12 +61,12 @@ body{
 
 }
 #choiceBox button{
-    color: white;
+    color: linear-gradient(to top, crimson 0%, black 100%;
     padding: 10px;
     border-radius: 10px;
     font-size: larger;
+    font-weight: bolder;
     background: linear-gradient(to bottom, crimson 0%, white 100%);
-
 }
 pre{
     font-size: larger;
