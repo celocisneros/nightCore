@@ -1,53 +1,24 @@
+/Marcelo's Batte Logic 
 
+for my database i am using Native driver = the direct MongoDB Node.js driver
 
-^these 2 here would clear up a lot of room in the dashboard html
+this function will redirect player to the battle.html page
 
-make the registration and login page spicier and the font size bigger for mobile(HALF WAY DONE)
+pull the current req.session.player and assign it to a variable named "player"
 
-research if i need to make separate apis for adding different things to the player object
-ex. adding yen(money) or adding xp or adding items etc..
+pull a random monster from the mongodb database named "nightcore" and from the collection "monsters" 
+and assign it to a variable named "monster"
 
-create enemy object in database, fetch into enemy stats inside enemy box on battle page
+place ${player.username} and ${player.hp} in the "playerStats" div
 
+insert an image element with the src attribute being ${monster.profilePicPath} and ${monster.name} and ${monster.hp} in the enemyStats div
 
-BATTLE FLOW WITH MONGO DB + SESSIONS STEPS {
+need to create a script to update divs whenever a turn ends, and to also update the "turnBox".textContent with whoevers turn it is currently
 
-STEP 1: Players Collection, Monsters Collection, And Sessions
+save the battle state as battle begins. battle state should contain the current player.username and monster.name
+along with the date and players.level and monster level and status as "started battle"
 
-STEP 2: WHEN A PLAYER CLICKS FIGHT THIS MONSTER YOU NEED TOO
-*GET THE CURRENT PLAYER
-*GRAB A MONSTER
-*CREATE A TEMPORARY BATTLE STATE EITHER IN LOCAL STORAGE OR THE DATABASE(IWANTDATABASE)
-
-STEP 3:
-PLAYERS TURN:
-PLAYER ATTACKS MONSTER
-SUBTRACT PLAYERS.ATTACK FROM MONSTERS.HP
-IF MONSTERS HP IS < OR = TO 0 THEN MONSTER IS DEFEATED
-REWARD PLAYER ON DEFEAT (XP,GOLD,ITEMS)
-
-MONSTERS TURN:
-IF STILL ALIVE
-MONSTER ATTACKS PLAYER
-SUBTRACT MONSTERS ATTACK FROM PLAYERS HP
-IF PLAYERS HP IS 0 PLAYER IS DEFEATED BATTLE ENDS
-RESET HP BACK TO 100 AND LEAVE THE BATTLE SCREEN 
-SEND MESSAGE TO INBOX ABOUT BATTLE
-ADD LOSS TO stats
-};
-
-COMPLETED:
-create a css folder to hold all the css files - then update the path in the html files (DONE)
-creating a css file for every page to get rid of the style blocks (DONE)
-spice up the index landing page(DONE)
-create a dashboardUI js file to handle filling in the ui fetching the current player(DONE)
-
-monster{
-    name: "bat",
-    attack: 5;
-    hp: 5;
-    exp: 25;
-    move: "slash";
-    profilePicPath: '/uploads';
-    yen: 10;
-}
+if player wins:
+we save the battle state like before but we also add monster.xp and monster.yen and monster.items,
+and change the status to "player.username wins"
+change the text content of "rewards" div to add monster.xp and monster.yen and monster.items and set display to block
