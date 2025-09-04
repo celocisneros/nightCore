@@ -1,4 +1,4 @@
-/Marcelo's Batte Logic 
+Marcelo's Battle Flow Logic 
 
 for my database i am using Native driver = the direct MongoDB Node.js driver
 
@@ -22,3 +22,12 @@ if player wins:
 we save the battle state like before but we also add monster.xp and monster.yen and monster.items,
 and change the status to "player.username wins"
 change the text content of "rewards" div to add monster.xp and monster.yen and monster.items and set display to block
+
+
+other notes:
+could use the $inc method in mongo db with a fetch post to the database to increase a players stats or money after the battle
+
+kind of want to put the battle state "schema" inside this function and send it to the backend
+
+battle function can either start a battle with a specific monster or pull a random monster from the database
+
