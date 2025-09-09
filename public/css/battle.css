@@ -9,6 +9,7 @@ body{
     display: flex;
     width: fit-content;
     padding: 10%;
+    flex-direction: row;
 }
 #playerBox{
     background-color: aqua;
