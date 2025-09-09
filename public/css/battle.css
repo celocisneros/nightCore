@@ -8,8 +8,8 @@ body{
     background-color: grey;
     width: fit-content;
     display: flex;
-    gap: 20%;
-    padding: 3%;
+    gap: 50%;
+    padding: 2%;
 }
 #playerBox{
     background-color: aqua;
