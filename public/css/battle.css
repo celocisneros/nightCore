@@ -10,8 +10,8 @@ body{
     height: 300px;
     display: flex;
     flex-direction: row;
-    gap: 370px;
-    padding: 10px;
+    gap: 360px;
+    padding: 20px;
 }
 #playerBox{
     background-color: rgb(0, 132, 132);
