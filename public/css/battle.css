@@ -2,10 +2,13 @@ body{
     background-color: darkolivegreen;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 #battleContainer{
     background-color: grey;
     display: flex;
+    width: fit-content;
+    padding: 10%;
 }
 #playerBox{
     background-color: aqua;
