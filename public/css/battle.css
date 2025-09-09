@@ -6,7 +6,7 @@ body{
 }
 #battleContainer{
     background-color: black;
-    width: 500px;
+    width: 600px;
     height: 300px;
     display: flex;
     flex-direction: row;
@@ -24,7 +24,7 @@ body{
     border: solid 1px white;
 }
 #playerPicture{
-    width: 100px;
+    width: 150px;
     border: solid 1px white;
 }
 #enemyBox{
@@ -38,6 +38,6 @@ body{
     border: solid 1px white;
 }
 #enemyPicture{
-    width: 100px;
+    width: 150px;
     border: solid 1px white;
 }
