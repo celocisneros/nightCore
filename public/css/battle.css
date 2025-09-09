@@ -1,0 +1,17 @@
+body{
+    background-color: darkolivegreen;
+    display: flex;
+    flex-direction: column;
+}
+#battleContainer{
+    background-color: grey;
+    display: flex;
+}
+#playerBox{
+    background-color: aqua;
+    float: left;
+}
+#enemyBox{
+    background-color: brown;
+    float: right;
+}

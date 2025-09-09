@@ -4,6 +4,31 @@
 <link rel="stylesheet" href="css/battle.css">
     </head>
 <body>
-    
+    <div id="turnContainer"></div>
+
+<div id="battleContainer">
+        <div id="playerBox">
+            <img id="playerPicture">
+            <p>
+                name: <span id="playerName"></span>
+            </p>
+        </div>
+
+        <div id="enemyBox">
+            <img id="enemyPicture">
+            <P>
+                name: <span id="enemyName"></span>
+            </p>
+        </div>
+</div>
+
+    <pre id="battleLog"></pre>
+
+    <div id="choiceContainer"></div>
+
+    <script>
+        document.getElementById('playerName').textContent = "Marcelo";
+        document.getElementById('enemyName').textContent = "Dinkleburg"
+    </script>
 </body>
 </html>
