@@ -10,7 +10,7 @@ body{
     height: 300px;
     display: flex;
     flex-direction: row;
-    gap: 360px;
+    gap: 340px;
     padding: 20px;
 }
 #playerBox{
