@@ -31,3 +31,7 @@ body{
     text-align: center;
     color: white;
 }
+#playerPicture{
+    width: 100px;
+    border: solid 1px white;
+}
