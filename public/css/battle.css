@@ -21,12 +21,10 @@ body{
     align-items: center;
     text-align: center;
     color: white;
+    border: solid 1px white;
 }
 #playerPicture{
     width: 100px;
-    border: solid 1px white;
-}
-#playerName{
     border: solid 1px white;
 }
 #enemyBox{
