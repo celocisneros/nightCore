@@ -16,11 +16,11 @@ body{
     background-color: aqua;
     float: left;
     height: 150px;
-    margin-top: 75px;
+    margin-top: 50px;
 }
 #enemyBox{
     background-color: brown;
     float: right;
     height: 150px;
-    margin-top: 75px;
+    margin-top: 50px;
 }
