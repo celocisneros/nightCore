@@ -6,9 +6,10 @@ body{
 }
 #battleContainer{
     background-color: grey;
-    display: flex;
     width: fit-content;
+    display: flex;
     gap: 10%;
+    padding: 5%;
 }
 #playerBox{
     background-color: aqua;
