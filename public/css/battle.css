@@ -10,13 +10,15 @@ body{
     height: 300px;
     display: flex;
     flex-direction: row;
-    gap: 300px;
+    gap: 400px;
 }
 #playerBox{
     background-color: aqua;
     float: left;
+    height: 150px;
 }
 #enemyBox{
     background-color: brown;
     float: right;
+    height: 150px;
 }
