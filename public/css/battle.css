@@ -6,7 +6,8 @@ body{
 }
 #battleContainer{
     background-color: grey;
-    width: 400px;
+    width: 500px;
+    height: 300px;
     display: flex;
 }
 #playerBox{
