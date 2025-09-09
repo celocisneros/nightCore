@@ -18,10 +18,14 @@ body{
     float: left;
     height: 150px;
     margin-top: 50px;
+    align-items: center;
+    text-align: center;
 }
 #enemyBox{
     background-color: brown;
     float: right;
     height: 150px;
     margin-top: 50px;
+    align-items: center;
+    text-align: center;
 }
