@@ -11,18 +11,17 @@ body{
     display: flex;
     flex-direction: row;
     gap: 370px;
+    padding: 10px;
 }
 #playerBox{
     background-color: aqua;
     float: left;
     height: 150px;
     margin-top: 50px;
-    margin-left: 25px;
 }
 #enemyBox{
     background-color: brown;
     float: right;
     height: 150px;
     margin-top: 50px;
-    margin-right: 25px;
 }
