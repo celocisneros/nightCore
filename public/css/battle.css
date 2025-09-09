@@ -10,7 +10,7 @@ body{
     height: 300px;
     display: flex;
     flex-direction: row;
-    gap: 350px;
+    gap: 360px;
 }
 #playerBox{
     background-color: aqua;
