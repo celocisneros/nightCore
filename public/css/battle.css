@@ -6,20 +6,14 @@ body{
 }
 #battleContainer{
     background-color: grey;
-    width: fit-content;
+    width: 400px;
     display: flex;
-    gap: 50%;
-    padding: 2%;
 }
 #playerBox{
     background-color: aqua;
     float: left;
-    padding: 2%;
-
 }
 #enemyBox{
     background-color: brown;
     float: right;
-    padding: 2%;
-
 }
