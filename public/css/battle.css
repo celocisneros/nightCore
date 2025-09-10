@@ -58,6 +58,7 @@ body{
     align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 #choiceContainer button{
     background-color: darkslategrey;
