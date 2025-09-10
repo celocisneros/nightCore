@@ -44,4 +44,5 @@ body{
 #battleLog{
     color: white;
     font-weight: bolder;
+    letter-spacing: 6px;
 }
