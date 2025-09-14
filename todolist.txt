@@ -31,3 +31,26 @@ kind of want to put the battle state "schema" inside this function and send it t
 
 battle function can either start a battle with a specific monster or pull a random monster from the database
 
+OUTLINE:
+
+let player;
+let monster;
+
+define variables outside the functions so they can all use it
+then in the start battle function we can fill in these variables and they will have data since this function is called first 
+
+function startBattle(){
+    fetch call player
+    assign data to player variable
+    fetch call monster
+    assign data to monster variable
+    fill in player and enemy stats and pictures in battle html
+    make the battle log say 'battle initiated - player vs monster - nightcore database updated - battle start! '
+    send a battle object (schema) to a battles collection inside the nightcore database
+    activate player turn
+}
+function playerTurn(){
+    change the color of the choice box to a light color so we know its our turn
+    update the turn box to say players turn (dynamic=req.session.players.name)
+}
+
